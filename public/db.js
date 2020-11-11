@@ -43,7 +43,7 @@ function checkDatabase() {
                     "Content-Type": "application/json"
                 }
             })
-            .then(response => response.json()
+            .then(response => response.json())
             .then(() => {
                 // open transaction in pending db
                 const transaction = db.transaction(["pending"], "readwrite");
@@ -55,11 +55,11 @@ function checkDatabase() {
         }
     };
 }
-function deletePending() {
-    const transaction = db.transaction(["pending"], "readwrite");
-    const pendingStore = transaction.objectStore("pending");
-    pendingStore.clear();
-  }
+// function deletePending() {
+//     const transaction = db.transaction(["pending"], "readwrite");
+//     const pendingStore = transaction.objectStore("pending");
+//     pendingStore.clear();
+//   }
 
 window.addEventListener("online", checkDatabase);
 
